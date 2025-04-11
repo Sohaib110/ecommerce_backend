@@ -14,19 +14,18 @@ class ProductListSerializer(serializers.ModelSerializer):
         ]
         
 
-class ProductDetailSerializer(serializers.ModelSerializer):
+class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = [
             'id',
             'name',
-            'price',
             'slug',
             'image',
-            'description',
+            
         ]
         
-class CategorySerializer(serializers.ModelSerializer):
+class CategoryDetailSerializer(serializers.ModelSerializer):
     products= ProductListSerializer(many=True, read_only=True)
     class Meta:
         model = Category
